@@ -17,19 +17,14 @@
      }
    };
  
-   // Function to delete a task
+   Function to delete a task
    const deleteTask = (index) => {
      const newTasks = [...tasks];
      newTasks.splice(index, 1);
      setTasks(newTasks);
    };
  
-   // Function to mark a task as completed
-   const toggleCompleted = (index) => {
-     const newTasks = [...tasks];
-     newTasks[index].completed = !newTasks[index].completed;
-     setTasks(newTasks);
-   };
+  
  
    return (
      <div>
@@ -46,14 +41,12 @@
        <ul>
          {tasks.map((task, index) => (
            <li key={index}>
-             <span
+             <span>
                style={{ textDecoration: task.completed ? 'line-through' : 'none' }}
-             >
+             
                {task.text}
              </span>
-             <button onClick={() => toggleCompleted(index)}>
-               {task.completed ? 'Undo' : 'Complete'}
-             </button>
+
              <button onClick={() => deleteTask(index)}>Delete</button>
            </li>
          ))}
